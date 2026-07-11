@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Charifit</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-charifit fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-hand-holding-heart text-teal me-2"></i><span>Chari</span>fit
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="causes.html">Causes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item dropdown">
+					    <a class="nav-link dropdown-toggle" href="#" id="loginLink" role="button" data-bs-toggle="dropdown">
+					        Login/Register
+					    </a>
+					
+					    <ul class="dropdown-menu">
+					        <li><a class="dropdown-item" href="profile.html">My Profile</a></li>
+					        <li><a class="dropdown-item" href="my-donations.html">My Donations</a></li>
+					        <li><hr class="dropdown-divider"></li>
+					        <li><a class="dropdown-item text-danger" href="#" onclick = "logoutUser(); return false;">Logout</a></li>
+					    </ul>
+					</li>
+
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a href="donate.html" class="btn btn-teal">Donate Now</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Subpage Banner -->
+    <section class="py-5 text-center" style="background: linear-gradient(135deg, #f0fdfa 0%, #e0e7ff 100%); margin-top: 76px;">
+        <div class="container py-4">
+            <h1 class="display-4 fw-bold">About Our Mission</h1>
+            <p class="text-muted col-md-6 mx-auto">Discover our backstory, our foundational principles, and the incredible team pushing our charity movements forward every single day.</p>
+        </div>
+    </section>
+
+    <!-- Detailed Bio Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="h1 mb-4 text-teal">Who We Are</h2>
+                    <p class="lead">Charifit was founded with the conviction that no individual should lack access to basic necessities—safe drinking water, nourishment, healthcare, and baseline literacy.</p>
+                    <p class="text-muted">Our platform serves as a vital bridge connecting kind-hearted donors globally with verified community programs. Every dollar is tracked directly from receipt through deployment. We run direct operations with fully local partners on the ground, bypassing heavy intermediary administration fees so that the maximum percentage of donations directly benefits children and families in need.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="row g-4">
+                        <div class="col-6">
+                            <div class="p-4 bg-white border rounded-4 text-center shadow-sm">
+                                <h3 class="display-5 fw-bold text-indigo">10+</h3>
+                                <p class="text-muted mb-0 fw-bold">Years of Service</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-white border rounded-4 text-center shadow-sm">
+                                <h3 class="display-5 fw-bold text-teal">50K+</h3>
+                                <p class="text-muted mb-0 fw-bold">Lives Impacted</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-white border rounded-4 text-center shadow-sm">
+                                <h3 class="display-5 fw-bold text-teal">100%</h3>
+                                <p class="text-muted mb-0 fw-bold">Transparency</p>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="p-4 bg-white border rounded-4 text-center shadow-sm">
+                                <h3 class="display-5 fw-bold text-indigo">12</h3>
+                                <p class="text-muted mb-0 fw-bold">Global Awards</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="text-teal fw-bold text-uppercase">Foundation</span>
+                <h2 class="h1 mt-2">Our Core Principles</h2>
+            </div>
+            <div class="row g-4 text-center">
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+                        <div class="rounded-circle bg-teal-light text-teal mx-auto mb-3 p-3" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-heart fa-2xl"></i>
+                        </div>
+                        <h4 class="mb-3">Empathy First</h4>
+                        <p class="text-muted mb-0">We operate with genuine kindness and respect for the dignity of every individual we help.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+                        <div class="rounded-circle bg-indigo-light text-indigo mx-auto mb-3 p-3" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-eye fa-2xl"></i>
+                        </div>
+                        <h4 class="mb-3">Full Transparency</h4>
+                        <p class="text-muted mb-0">We disclose detailed expense records and project logs so donors see their impact live.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-0 shadow-sm rounded-4 h-100 p-4">
+                        <div class="rounded-circle bg-teal-light text-teal mx-auto mb-3 p-3" style="width: 70px; height: 70px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fa-solid fa-handshake-angle fa-2xl"></i>
+                        </div>
+                        <h4 class="mb-3">Sustainability</h4>
+                        <p class="text-muted mb-0">We construct solutions that generate long-term stability and help communities self-sustain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3"><i class="fa-solid fa-hand-holding-heart text-teal me-2"></i>Chari<span>fit</span></h5>
+                    <p class="text-white">A dedicated platform powering community welfare and global donation campaigns with absolute transparency and efficiency.</p>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="fw-bold mb-3">Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="causes.html">Causes</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3">Office Location</h5>
+                    <p class="text-white mb-1"><i class="fa-solid fa-location-dot me-2 text-teal"></i>102 Charity Blvd, Hope City, HC 543</p>
+                    <p class="text-white mb-1"><i class="fa-solid fa-phone me-2 text-teal"></i>+123 4567 890</p>
+                    <p class="text-white"><i class="fa-solid fa-envelope me-2 text-teal"></i>info@charifit.org</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="fw-bold mb-3">Admin Login</h5>
+                    <a href="login.html" class="btn btn-sm btn-outline-light"><i class="fa-solid fa-lock me-2"></i>Admin Dashboard</a>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center text-white mt-4">
+                <p class="mb-0">&copy; 2026 Charifit. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom General Logic -->
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

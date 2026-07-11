@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charifit - Admin Dashboard</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Header Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid px-4">
+            <a class="navbar-brand fw-bold" href="index.html">
+                <i class="fa-solid fa-hand-holding-heart text-teal me-2"></i>Charifit <small class="text-teal font-monospace fs-6">Admin Panel</small>
+            </a>
+            <div class="ms-auto d-flex align-items-center">
+                <span class="text-light me-3 small d-none d-md-inline"><i class="fa-solid fa-user-circle me-1"></i> Hello, <strong id="adminNameDisplay">Admin</strong></span>
+                <button class="btn btn-sm btn-outline-danger" id="adminLogoutBtn"><i class="fa-solid fa-right-from-bracket me-1"></i> Logout</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar Navigation -->
+            <nav class="col-md-3 col-lg-2 d-md-block admin-sidebar collapse show p-0 bg-white">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="admin-nav-item active" href="#" data-target="dashboard-section">
+                                <i class="fa-solid fa-chart-pie"></i> Dashboard Overview
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="admin-nav-item" href="#" data-target="causes-section">
+                                <i class="fa-solid fa-circle-info"></i> Manage Causes
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="admin-nav-item" href="#" data-target="donations-section">
+                                <i class="fa-solid fa-hand-holding-dollar"></i> Donations Log
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="admin-nav-item" href="#" data-target="volunteers-section">
+                                <i class="fa-solid fa-users"></i> Volunteers List
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="admin-nav-item" href="#" data-target="queries-section">
+                                <i class="fa-solid fa-envelope-open-text"></i> Visitor Messages
+                            </a>
+                        </li>
+                        <li class="nav-item mt-4 border-top pt-3 px-3">
+                            <a href="index.html" class="btn btn-teal w-100"><i class="fa-solid fa-arrow-left me-1"></i> Public Website</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
+                
+                <!-- SECTION 1: Dashboard Overview -->
+                <div id="dashboard-section" class="admin-section">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-4 border-bottom">
+                        <h1 class="h2">Dashboard Overview</h1>
+                    </div>
+
+                    <!-- Stats Cards Row -->
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="admin-card text-center">
+                                <div class="rounded-circle bg-teal-light text-teal p-3 mx-auto mb-2" style="width:50px; height:50px; display:flex; align-items:center; justify-content:center;">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                </div>
+                                <h6 class="text-muted fw-bold mb-1">Total Raised</h6>
+                                <h4 class="fw-bold mb-0 text-teal" id="card-total-raised">Rs0</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="admin-card text-center">
+                                <div class="rounded-circle bg-indigo-light text-indigo p-3 mx-auto mb-2" style="width:50px; height:50px; display:flex; align-items:center; justify-content:center;">
+                                    <i class="fa-solid fa-receipt"></i>
+                                </div>
+                                <h6 class="text-muted fw-bold mb-1">Total Donations</h6>
+                                <h4 class="fw-bold mb-0 text-indigo" id="card-donations-count">0</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="admin-card text-center">
+                                <div class="rounded-circle bg-teal-light text-teal p-3 mx-auto mb-2" style="width:50px; height:50px; display:flex; align-items:center; justify-content:center;">
+                                    <i class="fa-solid fa-list-check"></i>
+                                </div>
+                                <h6 class="text-muted fw-bold mb-1">Charity Causes</h6>
+                                <h4 class="fw-bold mb-0 text-teal" id="card-causes-count">0</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="admin-card text-center">
+                                <div class="rounded-circle bg-indigo-light text-indigo p-3 mx-auto mb-2" style="width:50px; height:50px; display:flex; align-items:center; justify-content:center;">
+                                    <i class="fa-solid fa-users"></i>
+                                </div>
+                                <h6 class="text-muted fw-bold mb-1">Volunteers Registered</h6>
+                                <h4 class="fw-bold mb-0 text-indigo" id="card-volunteers-count">0</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row g-4">
+                        <!-- Causes Overview List -->
+                        <div class="col-lg-6">
+                            <div class="admin-card">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h5 class="fw-bold mb-0">Active Campaigns Preview</h5>
+                                    <span class="badge bg-teal-light text-teal font-monospace" id="card-queries-count">0 messages</span>
+                                </div>
+                                <div id="dashboard-causes-list" class="my-2">
+                                    <!-- Causes short list -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Quick Guide -->
+                        <div class="col-lg-6">
+                            <div class="admin-card bg-indigo-light border-0">
+                                <h5 class="fw-bold text-indigo"><i class="fa-solid fa-circle-info me-2"></i>Administration Guidelines</h5>
+                                <p class="small text-secondary mb-3 mt-3">You are logged into the **Charifit Admin Console**. You can add new causes, update target amounts, and edit descriptions. All visitor volunteer requests and donation transactions are synced here in real-time.</p>
+                                <ul class="small text-secondary ps-3">
+                                    <li class="mb-1">Active causes appear directly on the website.</li>
+                                    <li class="mb-1">Donation amounts update target progress bars instantly.</li>
+                                    <li>Volunteers or messages can be removed when reviewed.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SECTION 2: Manage Causes CRUD -->
+                <div id="causes-section" class="admin-section d-none">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-4 border-bottom">
+                        <h1 class="h2">Manage Charity Causes</h1>
+                        <button class="btn btn-teal btn-sm" onclick="openAddCauseModal()"><i class="fa-solid fa-plus me-1"></i> Add New Cause</button>
+                    </div>
+
+                    <div class="table-responsive bg-white">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Title</th>
+                                    <th>Goal Amount</th>
+                                    <th>Raised Amount</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="causesTableBody">
+                                <!-- Populated dynamically by admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SECTION 3: Donations Log -->
+                <div id="donations-section" class="admin-section d-none">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-4 border-bottom">
+                        <h1 class="h2">Donation Log</h1>
+                    </div>
+
+                    <div class="table-responsive bg-white">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Donor Detail</th>
+                                    <th>Cause Name</th>
+                                    <th>Amount</th>
+                                    <th>Date</th>
+                                    <th>Method</th>
+                                    <th>Message</th>
+                                </tr>
+                            </thead>
+                            <tbody id="donationsTableBody">
+                                <!-- Populated dynamically by admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SECTION 4: Volunteers List -->
+                <div id="volunteers-section" class="admin-section d-none">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-4 border-bottom">
+                        <h1 class="h2">Volunteer Registrations</h1>
+                    </div>
+
+                    <div class="table-responsive bg-white">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Phone</th>
+                                    <th>Why Join?</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="volunteersTableBody">
+                                <!-- Populated dynamically by admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- SECTION 5: Contact Queries -->
+                <div id="queries-section" class="admin-section d-none">
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-4 border-bottom">
+                        <h1 class="h2">Visitor Message Queries</h1>
+                    </div>
+
+                    <div class="table-responsive bg-white">
+                        <table class="table table-hover align-middle mb-0">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Visitor Details</th>
+                                    <th>Subject</th>
+                                    <th>Message Body</th>
+                                    <th>Date Sent</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="queriesTableBody">
+                                <!-- Populated dynamically by admin.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Add/Edit Cause Modal -->
+    <div class="modal fade" id="causeModal" tabindex="-1" aria-labelledby="causeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content border-0 rounded-4 shadow">
+                <div class="modal-header bg-dark text-white rounded-top-4">
+                    <h5 class="modal-title" id="causeModalTitle">Add Charity Cause</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="causeForm">
+                        <input type="hidden" id="causeId">
+                        
+                        <div class="mb-3">
+                            <label for="causeTitleInput" class="form-label fw-bold">Cause Title</label>
+                            <input type="text" class="form-control border-2 p-2" id="causeTitleInput" placeholder="e.g. Clean Water Wells in Malawi" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="causeDescInput" class="form-label fw-bold">Detailed Description</label>
+                            <textarea class="form-control border-2 p-2" id="causeDescInput" rows="4" placeholder="Explain the purpose, who benefits, and what the goal will accomplish..." required></textarea>
+                        </div>
+
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="causeGoalInput" class="form-label fw-bold">Goal Target Amount (Rs)</label>
+                                <input type="number" min="1" step="any" class="form-control border-2 p-2" id="causeGoalInput" placeholder="e.g. 15000" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="causeImgInput" class="form-label fw-bold">Image URL (Unsplash/Direct link)</label>
+                                <input type="url" class="form-control border-2 p-2" id="causeImgInput" placeholder="e.g. https://images.unsplash.com/photo-..." required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3 d-none" id="causeStatusWrapper">
+                            <label for="causeStatusInput" class="form-label fw-bold">Campaign Status</label>
+                            <select class="form-select border-2 p-2" id="causeStatusInput">
+                                <option value="active">Active</option>
+                                <option value="completed">Completed</option>
+                                <option value="paused">Paused</option>
+                            </select>
+                        </div>
+
+                        <div class="text-end mt-4">
+                            <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-teal px-4">Save Cause</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Admin Dashboard Logic -->
+    
+    <script src="js/admin.js"></script>
+</body>
+</html>

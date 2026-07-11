@@ -1,0 +1,7 @@
+target/
+tomcat.8080/
+tomcat-temp/
+.settings/
+.classpath
+.project
+*.log

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>User Login</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body class="bg-light">
+
+	<div class="container mt-5">
+
+		<div class="row justify-content-center">
+
+			<div class="col-md-5">
+
+				<div class="card shadow p-4">
+
+					<h2 class="text-center mb-4">
+						User Login
+					</h2>
+
+					<form id="loginForm">
+
+						<div class="mb-3">
+							<label>Username</label>
+								<input type="text" id="username" class="form-control" required>
+						</div>
+
+						<div class="mb-3">
+							<label>Password</label>
+								<input type="password" id="password" class="form-control" required>
+						</div>
+
+						<button class="btn btn-success w-100">
+						Login
+						</button>
+
+					</form>
+
+				<div id="result" class="mt-3"></div>
+
+					<div class="text-center mt-3">
+
+					    <a href="register.html" class="btn btn-primary w-100 mb-2">
+					        Register New User
+					    </a>
+					
+					    <a href="login.html" class="btn btn-dark w-100">
+					        Admin Login
+					    </a>
+					
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+<script>
+
+	document.getElementById("loginForm")
+	.addEventListener("submit", function(e){
+	
+	e.preventDefault();
+	
+	fetch("./api/auth/login",{
+	
+	method:"POST",
+	
+	headers:{
+	"Content-Type":"application/json"
+	},
+	
+	body:JSON.stringify({
+	
+	username:
+	document.getElementById("username").value,
+	
+	password:
+	document.getElementById("password").value
+	
+	})
+	
+	})
+	
+	.then(res => res.json())
+.then(data => {
+
+    console.log("LOGIN RESPONSE =", data);
+
+    if(data.success){
+
+        localStorage.setItem("username", data.username);
+        localStorage.setItem("loggedInUser", data.fullName);
+        localStorage.setItem("userEmail", data.email);
+
+        console.log("Stored Username:", data.username);
+        console.log("Stored Name:", data.fullName);
+        console.log("Stored Email:", data.email);
+
+        window.location.href = "index.html";
+    }
+})
+	});
+	
+	
+
+</script>
+
+</body>
+</html>
